@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <link rel="stylesheet" href="{% static 'css/Home.css' %}"> -->
+
+        <title>HPPBot</title>
+
+    </head>
+
+    <style>
+
+        body {
+            margin:180px 0; 
+            padding:0;
+            text-align:center;
+        }
+
+        a {
+            text-decoration:none;
+         }
+
+    </style>
+
+    <body>
+        <h3>HPPBot Data Management</h3>
+
+        <div class="buttons">
+
+            <button><a href="{% url 'login' %}">Login</a></button>
+            <button><a href="{% url 'register' %}">Register</a></button>
+
+        </div>
+
+    </body>
+
+</html>

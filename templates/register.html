@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <link rel="stylesheet" href="{% static 'css/Home.css' %}"> -->
+
+        <title>Register</title>
+
+    </head>
+
+    <style>
+
+        body {
+            margin:100px 0; 
+            padding:0;
+            text-align:center;
+        }
+
+        a {
+            text-decoration:none;
+         }
+
+    </style>
+
+    <body>
+
+        <button><a href="{% url 'index' %}">Back</a></button>  
+    
+        <br>
+        <br>
+
+        <h2>Register</h2>
+
+        <!-- <div class="buttons">
+
+            <button><a href="{% url 'upload_data' %}">Upload Data</a></button>
+            <button><a href="{% url 'export' %}">Export Data</a></button>
+
+        </div> -->
+
+        <form action="" method="post">
+
+            {% csrf_token %} 
+
+            <label>Username:</label>
+            <br>
+            {{form.username}}
+            <br>
+            <br>
+            <label>Email:</label>
+            <br>
+            {{form.email}}
+            <br>
+            <br>
+            <label>Password:</label>
+            <br>
+            {{form.password1}}
+            <br>
+            <br>
+            <label>Confirm Password:</label>
+            <br>
+            {{form.password2}}
+            <br>
+            <br>
+
+            {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    {{ error|escape }}
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                {{ error|escape }}
+            {% endfor %}
+            {% endif %} <br><br>
+
+            <input type="submit" value="Register">
+
+            <!-- {{form.as_p}} -->
+
+        </form>
+
+    </body>
+
+</html>

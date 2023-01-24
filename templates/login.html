@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- <link rel="stylesheet" href="{% static 'css/Home.css' %}"> -->
+
+        <title>Login</title>
+
+    </head>
+
+    <style>
+
+        body {
+            margin:175px 0; 
+            padding:0;
+            text-align:center;
+        }
+
+        a {
+            text-decoration:none;
+         }
+
+    </style>
+
+    <body>
+
+        <button><a href="{% url 'index' %}">Back</a></button>  
+    
+        <br>
+        <br>
+
+        <h2>Login</h2>
+
+        <!-- <div class="buttons">
+
+            <button><a href="{% url 'upload_data' %}">Upload Data</a></button>
+            <button><a href="{% url 'export' %}">Export Data</a></button>
+
+        </div> -->
+        
+        <form action="" method="post">
+
+            <!-- <div class="subtitle"> Modify Color</div> -->
+
+            {% csrf_token %}
+
+            <label>Username:</label>
+            <input type="text" name="username_html" />
+            <br>
+            <br>
+            <label>Password:</label>
+            <input type="password" name="password_html" />
+
+            <br>
+            <br>
+            <!-- <p>Drag your files here or click in this area.</p> -->
+
+            {% for message in messages %}
+
+                {{message}}
+
+            {% endfor %}
+            
+            <br>
+            <br>
+
+            <input type="submit" value="Login">
+
+            <!-- <button type="submit">Export</button> -->
+
+        </form>
+
+    </body>
+
+</html>

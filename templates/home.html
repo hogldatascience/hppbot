@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <link rel="stylesheet" href="{% static 'css/Home.css' %}"> -->
+
+        <title>Home</title>
+
+    </head>
+
+    <style>
+
+        body {
+            margin:175px 0; 
+            padding:0;
+            text-align:center;
+        }
+
+        a {
+            text-decoration:none;
+         }
+
+    </style>
+
+    <body>
+
+        <button><a href="{% url 'site' %}">Back</a></button>       
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h2>Welcome {{user.username}}</h2>
+
+        <div class="buttons">
+
+            {% if user.username == "chad" or user.username == "pacifiqueiradukunda"  or user.username == "pacifique" %}
+
+            <button><a href="{% url 'monitor' %}">Performance Monitoring</a></button>
+
+            {% endif %}    
+
+            {% if user.username == "aline" or user.username == "pacifiqueiradukunda"  or user.username == "pacifique"%}
+
+            <br>
+            <br>
+
+            <button><a href="{% url 'upload_data' %}">Upload Data</a></button>
+
+            {% endif %} 
+
+            {% if user.username == "pacifiqueiradukunda"  or user.username == "pacifique"%}
+            <br>
+            <br>
+
+            <button><a href="{% url 'export' %}">Data Management</a></button>
+
+            {% endif %}
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <form action="logout", method="post">
+
+            {% csrf_token %}
+
+            <input type="submit" name = "logout_html" value="Logout">
+
+        </form> 
+
+    </body>
+
+</html>

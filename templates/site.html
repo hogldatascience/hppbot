@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Site</title>
+
+    </head>
+
+    <style>
+
+        body {
+            margin:175px 0; 
+            padding:0;
+            text-align:center;
+        }
+
+        a {
+            text-decoration:none;
+         }
+
+    </style>
+
+    <body>
+
+        <button><a href="{% url 'login' %}">Back</a></button>       
+
+        <br>
+        <br>
+
+        <h2>Choose Site</h2>
+
+        <div class="buttons">
+
+            <button><a href="{% url 'home' %}">Rwaza</a></button>
+
+            <br>
+            <br>
+
+            <button><a href="{% url 'kavumu' %}">Kavumu</a></button>
+
+        </div>
+
+        <br>
+        <br>
+
+        <form action="logout", method="post">
+
+            {% csrf_token %}
+
+            <input type="submit" name = "logout_html" value="Logout">
+
+        </form> 
+
+    </body>
+
+</html>

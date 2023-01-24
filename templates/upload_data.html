@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Data</title>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <!-- <link rel="stylesheet" href="./style_upload.css"> -->
+
+  {% load static %}
+
+</head>
+
+<style>
+    a {
+        text-decoration:none;
+     }
+</style>
+
+<body>
+
+    <br>
+    <br>
+
+    <!-- <h2>Guards Tour Modify Color</h2> -->
+
+    <button><a href="{% url 'home' %}">Back</a></button>       
+
+    <br>
+    <br>
+
+    <div class = "Upload-Form">
+
+        <div class="title">
+            <h2>HPPBot Data</h2>
+        </div>
+        <div class="subtitle"> 
+            <h4>Upload Data</h4>
+        </div>
+        <br>
+        
+        <form action="update_db" method="post" enctype="multipart/form-data">
+
+            <!-- <div class="subtitle"> Modify Color</div> -->
+
+            {% csrf_token %}
+
+            <div class="box"> 
+
+                <label for="FileType" class="subtitle subt2">Select the file type: </label>
+
+                <select name="file_type_html" id="" required>
+
+                    <option value="P (kW)">P (kW)</option>
+                    <option value="U1 P (kW)">U1 P (kW)</option>
+                    <option value="U2 P (kW)">U2 P (kW)</option>
+                    <option value="H (m)">H (m)</option>
+                    <option value="U1 Y (%)">U1 Y (%)</option>
+                    <option value="U2 Y (%)">U2 Y (%)</option>
+                    <option value="Uab (kV)">Uab (kV)</option>
+                    <option value="Ubc (kV)">Ubc (kV)</option>
+                    <option value="Uca (kV)">Uca (kV)</option>
+                    <option value="Intake Data">Intake Data</option>
+
+                </select>
+
+            </div>
+            <br>
+
+            <div class="choose_file">
+
+                <div class="button-wrap">
+                
+                    <!-- <label class="button" for="upload">Choose File</label> -->
+
+                    <input id="" required name="selected_file_html" type="file" accept=".csv">
+
+                </div>
+            
+            </div>
+
+            <br>
+
+            <!-- <p>Drag your files here or click in this area.</p> -->
+
+            <input type="submit" value="Upload" class="submit">
+
+            <!-- <button type="submit">Upload</button> -->
+
+        </form>
+        
+        <h5 style="color:Red;">{{message}}</h5>
+
+        <br>
+        <br>
+        <br>
+
+        <form action="logout", method="post">
+
+            {% csrf_token %}
+
+            <input type="submit" name = "logout_html" value="Logout">
+
+        </form>
+      
+    </div>
+
+</body>
+
+</html>
